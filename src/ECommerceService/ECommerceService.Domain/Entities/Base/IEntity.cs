@@ -12,7 +12,7 @@
         public int RowStatus { get; set; }
 
     }
-    public interface IEntity : IEntity<int>
+    public interface IEntity : IEntity<long>
     {
 
     }

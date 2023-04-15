@@ -2,7 +2,7 @@
 {
     public abstract class BaseEntity : IEntity
     {
-        public virtual int Id { get; set; }
+        public virtual long Id { get; set; }
         public bool IsActive { get; set; } = true;
         public bool IsDeleted { get; set; }
         public DateTime CreatedDate { get; set; }
