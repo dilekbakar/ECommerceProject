@@ -1,4 +1,4 @@
-﻿using WebService.Domain.Entities.Base;
+﻿using ECommerceService.Domain.Entities.Base;
 
 namespace ECommerceService.Domain.Entities.Models
 {

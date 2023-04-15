@@ -1,4 +1,4 @@
-﻿namespace WebService.Domain.Entities.Base
+﻿namespace ECommerceService.Domain.Entities.Base
 {
     public interface IEntity<TKey>
     {

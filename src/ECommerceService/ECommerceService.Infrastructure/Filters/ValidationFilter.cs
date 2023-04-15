@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Filters;
 using System.Net;
 
-namespace WebService.Infrastructure.Filters
+namespace ECommerceService.Infrastructure.Filters
 {
     public class ValidationFilter : IAsyncActionFilter
     {

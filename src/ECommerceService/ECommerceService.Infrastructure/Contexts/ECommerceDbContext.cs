@@ -1,7 +1,7 @@
 ﻿using ECommerceService.Domain.Entities.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
-using WebService.Domain.Entities.Base;
+using ECommerceService.Domain.Entities.Base;
 
 namespace ECommerceService.Infrastructure.Contexts
 {
