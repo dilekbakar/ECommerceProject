@@ -1,4 +1,6 @@
-﻿using ECommerceService.Infrastructure.Contexts;
+﻿using ECommerceService.Application.Interfaces;
+using ECommerceService.Infrastructure.Contexts;
+using ECommerceService.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,7 +22,11 @@ namespace ECommerceService.Infrastructure.Extensions
                 });
             });
 
-           
+            services.AddScoped<IBasketRepository, BasketRepository>();
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<IDiscountRepository, DiscountRepository>();
 
             return services;
         }
