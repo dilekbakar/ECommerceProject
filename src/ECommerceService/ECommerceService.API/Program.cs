@@ -1,10 +1,14 @@
 using ECommerceService.API.Infrastructure.Extensions;
 using ECommerceService.Infrastructure.Extensions;
 using ECommerceService.Infrastructure.Filters;
+using ECommerceService.Application.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 builder.Services.AddApiVersioningWithConfigure();
+
+builder.Services.AddApplicationRegistration();
+builder.Services.AddInfrastructureRegistration(builder.Configuration);
 
 // Add services to the container.
 builder.Services.AddControllers(options => options.Filters.Add<ValidationFilter>()).AddNewtonsoftJson(options =>
@@ -14,7 +18,6 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddInfrastructureRegistration(builder.Configuration);
 builder.WebHost.UseKestrel(opt =>
 {
     opt.AddServerHeader = false;
