@@ -20,6 +20,7 @@ namespace ECommerceService.Infrastructure.Contexts
         public DbSet<Product> Products { get; set; }
         public DbSet<Basket> Baskets { get; set; }
         public DbSet<Discount> Discounts { get; set; }
+        public DbSet<Category> Categories { get; set; }
        
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
