@@ -5,6 +5,6 @@ namespace ECommerceService.Application.Features.Commands.CreateCategory
 {
     public class CreateCategoryCommand : IRequest<bool>
     {
-        public CreateCategoryVM CreateCategoryVM { get; set; }
+        public CreateCategoryVM? CreateCategoryVM { get; set; }
     }
 }

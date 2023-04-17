@@ -201,7 +201,7 @@ namespace ECommerceService.Infrastructure.Repositories
         public virtual async Task<List<TEntity>> GetAll(bool noTracking = true)
         {
             if (noTracking)
-                return await Entity.AsNoTracking().Where(i => !i.IsDeleted).ToListAsync();
+                return await Entity.AsNoTracking().Where(i => !i.IsDeleted && i.IsActive==true).ToListAsync();
 
             return await Entity.ToListAsync();
         }

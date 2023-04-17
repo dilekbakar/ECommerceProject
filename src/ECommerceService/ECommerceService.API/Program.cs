@@ -9,6 +9,7 @@ builder.Services.AddApiVersioningWithConfigure();
 
 builder.Services.AddApplicationRegistration();
 builder.Services.AddInfrastructureRegistration(builder.Configuration);
+builder.Services.AddValidationRegistration(builder.Configuration);
 
 // Add services to the container.
 builder.Services.AddControllers(options => options.Filters.Add<ValidationFilter>()).AddNewtonsoftJson(options =>
