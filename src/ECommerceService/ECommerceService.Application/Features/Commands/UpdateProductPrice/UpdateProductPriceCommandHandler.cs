@@ -23,8 +23,16 @@ namespace ECommerceService.Application.Features.Commands.UpdateProductPrice
                 var products = await _productRepository.GetList(x=>x.CategoryId==discount.CategoryId);
                 foreach (var product in products)
                 {
-                    product.DiscountedPrice= product.Price - (discount.DiscountAmount*product.Price);
-                    await _productRepository.UpdateAsync(product);
+                    if (discount.StartDate <= DateTime.UtcNow && discount.EndDate>= DateTime.UtcNow)
+                    {
+                        product.DiscountedPrice = product.Price - (discount.DiscountAmount * product.Price);
+                        await _productRepository.UpdateAsync(product);
+                    }
+                    else
+                    {
+                        product.DiscountedPrice = null;
+                        await _productRepository.UpdateAsync(product);
+                    }
                 }
             }
             return true;
