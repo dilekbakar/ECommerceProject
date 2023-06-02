@@ -1,5 +1,6 @@
 ﻿using ECommerceService.API.Models;
 using ECommerceService.Application.Features.Commands.CreateDiscount;
+using ECommerceService.Application.Features.Queries.GetActiveDiscounts;
 using ECommerceService.Application.Features.Queries.GetCategories;
 using ECommerceService.Application.Features.Queries.GetDiscounts;
 using MediatR;
@@ -42,6 +43,18 @@ namespace ECommerceService.API.Controllers.v1
         public async Task<IActionResult> CreateDiscount(CreateDiscountCommand createDiscountCommand)
         {
             var response = new ResponseModel() { Success = true, Message = "Başarılı", Data = await _mediator.Send(createDiscountCommand) };
+            return Ok(response);
+        }
+        #endregion
+
+        #region Get ActiveDiscounts
+        [HttpGet("getactvediscounts")]
+        [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
+        [ProducesResponseType(typeof(ResponseModel), (int)HttpStatusCode.OK)]
+        public async Task<IActionResult> GetActiveDiscounts(int page, int pageSize)
+        {
+            var response = new ResponseModel() { Success = true, Message = "Başarılı", Data = await _mediator.Send(new GetActiveDiscountsQuery(page, pageSize)) };
+
             return Ok(response);
         }
         #endregion
